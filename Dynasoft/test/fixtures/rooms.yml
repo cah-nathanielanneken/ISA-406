@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  occupancy: 1
+  location: MyString
+  maxOccupancy: 1
+  editor: MyString
+
+two:
+  name: MyString
+  occupancy: 1
+  location: MyString
+  maxOccupancy: 1
+  editor: MyString

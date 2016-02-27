@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Rooms</h1>
+
+
+<% @rooms.each do |room| %>
+<div class="col-xs-12">
+  <%= link_to(edit_room_path(room)) do %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= room.name %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="input-group input-group-lg">
+        <span class="input-group-addon" id="sizing-addon1">
+          <%= room.occupancy %>/<%= room.maxOccupancy %>
+        </span>
+      </div> <!-- /input-group -->
+    </div> <!-- /panel-body -->
+  </div> <!-- /panel-default -->
+  <% end %>
+</div> <!-- /col-xs-12 -->
+<% end %>
+
+
+<br>
+
+<%= link_to 'New Room', new_room_path %>
