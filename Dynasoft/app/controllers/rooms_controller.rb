@@ -1,18 +1,19 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :admin_user,     only: [:destroy]
 
   # GET /rooms
   # GET /rooms.json
   def index
-    @rooms = Room.where(created_at: 1.hour.ago...Time.zone.now, activated: true)
-    if @rooms.blank?
-      (Roombase.all).each do |room|
-        @roomCopy = Room.new(name: room.name, location: room.location,
-          maxOccupancy: room.maxOccupancy, occupancy: 0, editor: nil)
-        @roomCopy.save
-      end
-      @rooms = Room.where(created_at: 1.hour.ago...Time.zone.now, activated: true)
-    end
+    @rooms = find_latest_rooms
+    # if @rooms.blank?
+    #   Room.generateNewRoomOnTheHour
+    #   size = (Roombase.all).size
+    #   while @rooms.size != size
+    #     @rooms = find_latest_rooms
+    #   end
+    # end
   end
 
   # GET /rooms/1
@@ -48,15 +49,12 @@ class RoomsController < ApplicationController
   # PATCH/PUT /rooms/1
   # PATCH/PUT /rooms/1.json
   def update
-    respond_to do |format|
-      if @room.update(room_params)
-        format.html { redirect_to @room, notice: 'Room was successfully updated.' }
-        format.json { render :show, status: :ok, location: @room }
-      else
-        format.html { render :edit }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
-      end
+    store_location
+    #if @room.update(room_params) && @room.update(editor: session[:cas_user])
+    if @room.update(room_params) && @room.update(editor: current_user.id)
+      flash[:success] = "Room updated"
     end
+    redirect_back_or(root_url)
   end
 
   # DELETE /rooms/1
@@ -77,6 +75,14 @@ class RoomsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def room_params
-      params.require(:room).permit(:name, :occupancy, :location, :maxOccupancy, :editor)
+      params.require(:room).permit(:name, :occupancy, :location, :maxOccupancy)
+    end
+
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
     end
 end

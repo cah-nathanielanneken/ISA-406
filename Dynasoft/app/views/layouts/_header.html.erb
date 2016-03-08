@@ -1,5 +1,11 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
+<header class="navbar navbar-static-top navbar-inverse">
   <div class="container">
+    <div class="pull-left">
+      <%= link_to(root_path) do %>
+        <img src="/assets/logo.gif" alt="Img" id="logo">
+        <span class="title"><b>Dynasoft</b></span>
+      <% end %>
+    </div>
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>

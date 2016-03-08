@@ -5,7 +5,7 @@
 @import "bootstrap";
 
 body {
-  padding-top: 60px;
+  padding-top: 0px;
 }
 
 section {
@@ -14,6 +14,20 @@ section {
 
 textarea {
   resize: vertical;
+}
+
+#logo {
+  height: 200px;
+  padding: 10px;
+}
+
+.title {
+  color: white;
+  font-size: 30px;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .center {
