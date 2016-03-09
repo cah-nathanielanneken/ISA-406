@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/invalid_user'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'rooms#index'
+  root 'locations#index'
   resources :users
   resources :rooms
+  get 'rooms/location/:location' => 'rooms#index', :as => :rooms_location
+  resources :roombases
+  get '/invalidUser' => 'static_pages#invalid_user'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

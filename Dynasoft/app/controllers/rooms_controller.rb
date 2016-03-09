@@ -1,9 +1,8 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user,     only: [:destroy]
+  #before_action :admin_user,     only: [:destroy]
 
   # GET /rooms
-  # GET /rooms.json
   def index
     @rooms = find_latest_rooms
     # if @rooms.blank?
@@ -15,38 +14,7 @@ class RoomsController < ApplicationController
     # end
   end
 
-  # GET /rooms/1
-  # GET /rooms/1.json
-  def show
-  end
-
-  # GET /rooms/new
-  def new
-    @room = Room.new
-  end
-
-  # GET /rooms/1/edit
-  def edit
-  end
-
-  # POST /rooms
-  # POST /rooms.json
-  def create
-    # @room = Room.new(room_params)
-    #
-    # respond_to do |format|
-    #   if @room.save
-    #     format.html { redirect_to @room, notice: 'Room was successfully created.' }
-    #     format.json { render :show, status: :created, location: @room }
-    #   else
-    #     format.html { render :new }
-    #     format.json { render json: @room.errors, status: :unprocessable_entity }
-    #   end
-    # end
-  end
-
   # PATCH/PUT /rooms/1
-  # PATCH/PUT /rooms/1.json
   def update
     #if @room.update(room_params) && @room.update(editor: session[:cas_user])
     if @room.update(room_params)
@@ -54,7 +22,7 @@ class RoomsController < ApplicationController
     else
       flash[:failure] = "Room failed to update. Please try again"
     end
-    redirect_to root_url
+    redirect_to :back
   end
 
   # DELETE /rooms/1

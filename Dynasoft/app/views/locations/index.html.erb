@@ -1,0 +1,21 @@
+<h1>Listing Locations</h1>
+
+<% Roombase.uniq.pluck(:location).each do |location| %>
+    <div class="col-xs-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+        </div>
+        <%= link_to rooms_location_path(:location => location) do %>
+        <button type="button">
+          <div class="panel-body">
+            <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="sizing-addon1">
+            <%= location %>
+          </span>
+            </div> <!-- /input-group -->
+          </div> <!-- /panel-body -->
+        </button>
+        <% end %>
+      </div> <!-- /panel-default -->
+    </div> <!-- /col-xs-12 -->
+<% end %>

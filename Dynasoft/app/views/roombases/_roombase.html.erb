@@ -1,0 +1,6 @@
+<li>
+  <span><%= roombase.name %></span>
+      | <%= link_to "update", edit_roombase_path(roombase) %>
+      | <%= link_to "delete", roombase, method: :delete,
+                    data: { confirm: "You sure?" } %>
+</li>
