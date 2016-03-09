@@ -1,55 +1,52 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Rooms</h1>
 
-
 <% @rooms.each do |room| %>
-<div class="col-xs-12">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title"><%= room.name %></h3>
-    </div>
-    <button type="button" data-toggle="modal" data-target="#input-<%=room.name.delete(' ').delete('(').delete(')')
-                                                                     .delete('/') %>">
-      <div class="panel-body">
-        <div class="input-group input-group-lg">
+    <div class="col-xs-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><%= room.name %></h3>
+        </div>
+        <button type="button" data-toggle="modal" data-target="#input-<%=room.name.delete(' ').delete('(').delete(')')
+                                                                         .delete('/') %>">
+          <div class="panel-body">
+            <div class="input-group input-group-lg">
           <span class="input-group-addon" id="sizing-addon1">
             <%= room.occupancy %>/<%= room.maxOccupancy %>
           </span>
-        </div> <!-- /input-group -->
-      </div> <!-- /panel-body -->
-    </button>
-  </div> <!-- /panel-default -->
+            </div> <!-- /input-group -->
+          </div> <!-- /panel-body -->
+        </button>
+      </div> <!-- /panel-default -->
 
-  <%= form_for(room) do |f| %>
+      <%= form_for(room) do |f| %>
 
-  <div id="input-<%=room.name.delete(' ').delete('(').delete(')')
-                     .delete('/') %>" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+          <div id="input-<%=room.name.delete(' ').delete('(').delete(')')
+                            .delete('/') %>" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Occupancy for <%= room.name %></h4>
-        </div>
-        <div class="modal-body">
-          <%= f.number_field :occupancy %>
-          <div class="actions">
-            <%= f.submit %>
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Occupancy for <%= room.name %></h4>
+                </div>
+                <div class="modal-body">
+                  <%= f.number_field :occupancy %>
+                  <div class="actions">
+                    <%= f.submit %>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+
+            </div>
+
           </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
 
 
-  <% end %>
+      <% end %>
 
-</div> <!-- /col-xs-12 -->
+    </div> <!-- /col-xs-12 -->
 <% end %>

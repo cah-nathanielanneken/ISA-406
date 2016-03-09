@@ -1,6 +1,5 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :admin_user,     only: [:destroy]
 
   # GET /rooms
@@ -33,38 +32,36 @@ class RoomsController < ApplicationController
   # POST /rooms
   # POST /rooms.json
   def create
-    @room = Room.new(room_params)
-
-    respond_to do |format|
-      if @room.save
-        format.html { redirect_to @room, notice: 'Room was successfully created.' }
-        format.json { render :show, status: :created, location: @room }
-      else
-        format.html { render :new }
-        format.json { render json: @room.errors, status: :unprocessable_entity }
-      end
-    end
+    # @room = Room.new(room_params)
+    #
+    # respond_to do |format|
+    #   if @room.save
+    #     format.html { redirect_to @room, notice: 'Room was successfully created.' }
+    #     format.json { render :show, status: :created, location: @room }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @room.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /rooms/1
   # PATCH/PUT /rooms/1.json
   def update
-    store_location
     #if @room.update(room_params) && @room.update(editor: session[:cas_user])
-    if @room.update(room_params) && @room.update(editor: current_user.id)
+    if @room.update(room_params)
       flash[:success] = "Room updated"
+    else
+      flash[:failure] = "Room failed to update. Please try again"
     end
-    redirect_back_or(root_url)
+    redirect_to root_url
   end
 
   # DELETE /rooms/1
   # DELETE /rooms/1.json
   def destroy
     @room.destroy
-    respond_to do |format|
-      format.html { redirect_to rooms_url, notice: 'Room was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = "Room deleted"
   end
 
   private

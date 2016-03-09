@@ -110,3 +110,10 @@ input {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+.radio {
+  margin-left: 20px;
+  input {
+    width: 10%;
+  }
+}

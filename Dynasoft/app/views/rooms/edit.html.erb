@@ -1,6 +1,5 @@
-<h1>Editing Room</h1>
+<% provide(:title, 'Edit User') %>
+<% provide(:submitName, 'Save Changes') %>
+<h1>Update User</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @room %> |
-<%= link_to 'Back', rooms_path %>
+<%= render 'layouts/userFields' %>

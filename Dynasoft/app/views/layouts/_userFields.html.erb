@@ -1,20 +1,21 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(@user) do |f| %>
-      
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control' %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email, class: 'form-control' %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'form-control' %>
+        <%= f.label :admin %>
+        <div class="radio">
+          <%= f.radio_button :admin, true, class: 'form-control' %>
+          <%= label :admin_yes, 'Yes', :value => "true" %>
+        </div>
+        <div class="radio">
+          <%= f.radio_button :admin, false, class: 'form-control' %>
+          <%= label :admin_no, 'No', :value => "false" %>
+        </div>
 
-    <%= f.label :password_confirmation, "Confirmation" %>
-    <%= f.password_field :password_confirmation, class: 'form-control' %>
-
-      <%= f.submit yield(:submitName), class: "btn btn-primary" %>
+        <%= f.submit yield(:submitName), class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
