@@ -1,4 +1,4 @@
-<h1>Listing Rooms</h1>
+<h1>Listing Rooms From <%= current_time_slot %></h1>
 
 <% @rooms.each do |room| %>
     <div class="col-xs-12">
@@ -32,8 +32,9 @@
                 </div>
                 <div class="modal-body">
                   <%= f.number_field :occupancy %>
+                  <%= f.hidden_field :maxOccupancy %>
                   <div class="actions">
-                    <%= f.submit %>
+                    <%= f.submit  %>
                   </div>
                 </div>
                 <div class="modal-footer">
