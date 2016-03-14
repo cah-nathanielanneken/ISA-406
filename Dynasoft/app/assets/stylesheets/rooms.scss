@@ -122,3 +122,23 @@ input {
     width: 10%;
   }
 }
+
+.panel-primary > .panel-heading {
+  background-color: #E1213E;
+}
+
+.panel-primary {
+  border-color: black;
+   > .panel-heading {
+     border-color: black;
+   }
+}
+
+.btn-primary, .btn-primary:hover {
+  background-color: black;
+  border-color: black;
+}
+
+a:hover {
+  color: #E1213E !important;
+}
