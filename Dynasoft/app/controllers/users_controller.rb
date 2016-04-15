@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  #before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :admin_user, only: [:index, :edit, :update, :destroy]
   #before_action :admin_user,     only: :destroy
 
   def index
@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      redirect_to(root_url) unless is_admin?
+      redirect_to(invalidUser_path) unless :is_admin?
     end
 
 end

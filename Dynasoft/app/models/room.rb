@@ -6,9 +6,18 @@ class Room < ActiveRecord::Base
 
   def self.generateNewRoomOnTheHour
       (Roombase.all).each do |room|
-        @roomCopy = Room.new(name: room.name, location: room.location,
+	isDeactive = false
+	time = Time.now.hour
+	(Roomactivity.where(room: room.name)).each do |activity|
+	  if (activity.begin <= time && activity.end > time) || (activity.begin > time && 			activity.end > time && (activity.begin - activity.end) < 0)
+	    isDeactive = true
+	  end
+	end
+	if !isDeactive && room.activated?
+          @roomCopy = Room.new(name: room.name, location: room.location,
                              maxOccupancy: room.maxOccupancy, occupancy: 0, editor: nil)
-        @roomCopy.save
+          @roomCopy.save
+	end
       end
   end
 

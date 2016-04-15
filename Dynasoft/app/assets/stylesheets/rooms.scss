@@ -75,6 +75,7 @@ input, textarea, select, .uneditable-input {
 
 input {
   height: auto !important;
+  font-size: 16px;
 }
 
 #error_explanation {
@@ -141,4 +142,51 @@ input {
 
 a:hover {
   color: #E1213E !important;
+}
+
+button {
+  background-color: lightgrey;
+}
+
+.times {
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.btn-wrap {
+  padding-bottom: 15px;
+}
+
+.btn-wrap > a:hover {
+  background-color: transparent;
+}
+
+.create-new-button {
+  padding-top: 20px;
+}
+
+.link-wrap > a:hover {
+  background-color: inherit;
+}
+
+.btn-wrap > a > button {
+  margin-right: 10px;
+}
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .panel-title, .modal-title {
+    text-align: center;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
 }

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@roomactivity) do |f| %>
+
+	<%= f.label :room %>
+	<%= f.select :room, options_from_collection_for_select(Roombase.all, :name, :name, @roomactivity.room) %>
+
+        <%= f.label :begin %>
+	<%= f.select :begin, timeOptions, {:selected => @roomactivity.begin} %>
+
+        <%= f.label :end %>
+	<%= f.select :end, timeOptions, {:selected => @roomactivity.end} %>
+
+        <%= f.submit yield(:submitName), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

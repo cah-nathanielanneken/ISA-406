@@ -1,4 +1,46 @@
-<h1>Listing Rooms From <%= current_time_slot %></h1>
+<h1 class="times"><%= current_time_slot %></h1>
+
+<div class="btn-wrap">
+<%= link_to root_url do %>
+    <button class="btn btn-primary">
+      <span>Back</span>
+    </button>
+<% end %>
+<% if @rooms.first.location == "1st Floor" %>
+<%= link_to rooms_location_path(:location => "2nd Floor") do %>
+    <button class="btn btn-primary">
+      <span>2nd Floor</span>
+    </button>
+<% end %>
+<%= link_to rooms_location_path(:location => "3rd Floor") do %>
+    <button class="btn btn-primary">
+      <span>3rd Floor</span>
+    </button>
+<% end %>
+<% elsif @rooms.first.location == "2nd Floor" %>
+<%= link_to rooms_location_path(:location => "1st Floor") do %>
+    <button class="btn btn-primary">
+      <span>1st Floor</span>
+    </button>
+<% end %>
+<%= link_to rooms_location_path(:location => "3rd Floor") do %>
+    <button class="btn btn-primary">
+      <span>3rd Floor</span>
+    </button>
+<% end %>
+<% else %>
+<%= link_to rooms_location_path(:location => "1st Floor") do %>
+    <button class="btn btn-primary">
+      <span>1st Floor</span>
+    </button>
+<% end %>
+<%= link_to rooms_location_path(:location => "2nd Floor") do %>
+    <button class="btn btn-primary">
+      <span>2nd Floor</span>
+    </button>
+<% end %>
+<% end %>
+</div>
 
 <% @rooms.each do |room| %>
     <div class="col-xs-12">
@@ -6,7 +48,7 @@
         <div class="panel-heading">
           <h3 class="panel-title"><%= room.name %></h3>
         </div>
-        <button type="button" data-toggle="modal" data-target="#input-<%=room.name.delete(' ').delete('(').delete(')')
+        <button type="button" class="main-button" data-toggle="modal" data-target="#input-<%=room.name.delete(' ').delete('(').delete(')')
                                                                          .delete('/') %>">
           <div class="panel-body">
             <div class="input-group input-group-lg">
@@ -34,7 +76,7 @@
                   <%= f.number_field :occupancy %>
                   <%= f.hidden_field :maxOccupancy %>
                   <div class="actions">
-                    <%= f.submit  %>
+                    <%= f.submit "commit", :class => "btn btn-primary"  %>
                   </div>
                 </div>
                 <div class="modal-footer">
@@ -52,8 +94,44 @@
     </div> <!-- /col-xs-12 -->
 <% end %>
 
+<div class="btn-wrap">
 <%= link_to root_url do %>
     <button class="btn btn-primary">
       <span>Back</span>
     </button>
 <% end %>
+<% if @rooms.first.location == "1st Floor" %>
+<%= link_to rooms_location_path(:location => "2nd Floor") do %>
+    <button class="btn btn-primary">
+      <span>2nd Floor</span>
+    </button>
+<% end %>
+<%= link_to rooms_location_path(:location => "3rd Floor") do %>
+    <button class="btn btn-primary">
+      <span>3rd Floor</span>
+    </button>
+<% end %>
+<% elsif @rooms.first.location == "2nd Floor" %>
+<%= link_to rooms_location_path(:location => "1st Floor") do %>
+    <button class="btn btn-primary">
+      <span>1st Floor</span>
+    </button>
+<% end %>
+<%= link_to rooms_location_path(:location => "3rd Floor") do %>
+    <button class="btn btn-primary">
+      <span>3rd Floor</span>
+    </button>
+<% end %>
+<% else %>
+<%= link_to rooms_location_path(:location => "1st Floor") do %>
+    <button class="btn btn-primary">
+      <span>1st Floor</span>
+    </button>
+<% end %>
+<%= link_to rooms_location_path(:location => "2nd Floor") do %>
+    <button class="btn btn-primary">
+      <span>2nd Floor</span>
+    </button>
+<% end %>
+<% end %>
+</div>

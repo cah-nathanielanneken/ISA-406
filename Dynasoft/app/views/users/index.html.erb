@@ -6,3 +6,11 @@
 <ul class="users">
   <%= render @users %>
 </ul>
+
+<div class="create-new-button">
+<%= link_to new_user_path do %>
+    <button class="btn btn-primary">
+      <span>New User</span>
+    </button>
+<% end %>
+</div>

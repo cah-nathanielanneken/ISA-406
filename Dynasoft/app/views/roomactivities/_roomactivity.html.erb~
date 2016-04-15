@@ -1,0 +1,9 @@
+<li>
+  <span>
+	<%= roomactivity.room %>
+  </span>
+  <span><%= printTimeValue(roomactivity.begin) %> - <%= printTimeValue(roomactivity.end) %> for <%= roomactivity.room %></span>
+      | <%= link_to "update", edit_roomactivity_path(roomactivity) %>
+      | <%= link_to "delete", roomactivity, method: :delete,
+                    data: { confirm: "You sure?" } %>
+</li>

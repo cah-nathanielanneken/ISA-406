@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
+  get 'roomactivities/index'
+
   get 'static_pages/invalid_user'
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -9,9 +12,11 @@ Rails.application.routes.draw do
   root 'locations#index'
   resources :users
   resources :rooms
+  resources :roomactivities
   get 'rooms/location/:location' => 'rooms#index', :as => :rooms_location
   resources :roombases
   get '/invalidUser' => 'static_pages#invalid_user'
+  get '/logout' => 'application#logout'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

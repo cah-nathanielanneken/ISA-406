@@ -16,8 +16,7 @@ class RoomsController < ApplicationController
 
   # PATCH/PUT /rooms/1
   def update
-    #if @room.update(room_params) && @room.update(editor: session[:cas_user])
-    if @room.update(room_params)
+    if @room.update(room_params) && @room.update(editor: session[:cas_user])
       flash[:success] = "Room updated"
     else
       flash[:failure] = "Room failed to update. Please try again"

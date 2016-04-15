@@ -1,0 +1,8 @@
+class StaticPagesController < ApplicationController
+  def invalid_user
+  end
+
+  def export
+    temp = Room.all    end
+  end
+end

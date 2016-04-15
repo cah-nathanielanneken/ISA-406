@@ -1,6 +1,6 @@
 class RoombasesController < ApplicationController
   before_action :set_roombase, only: [:show, :edit, :update, :destroy]
-  #before_action :admin_user,     only: [:destroy]
+  before_action :admin_user,     only: [:show, :edit, :update, :destroy]
 
   # GET /roombases
   def index
@@ -59,11 +59,7 @@ class RoombasesController < ApplicationController
       params.require(:roombase).permit(:name, :location, :maxOccupancy, :activated)
     end
 
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
+    def admin_user
+      redirect_to(invalidUser_path) unless :is_admin?
     end
 end
