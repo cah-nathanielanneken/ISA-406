@@ -1,0 +1,4 @@
+class AddSortIndexToRoombases < ActiveRecord::Migration
+  def change
+  end
+end

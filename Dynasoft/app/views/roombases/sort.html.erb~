@@ -1,0 +1,29 @@
+<% provide(:title, 'Edit Room Order') %>
+<h1>Edit Room Order</h1>
+
+<%= form_tag roombases_edit_sort_save_path, :id => 'rooms-form' do %>
+<% Roombase.uniq.pluck(:location).each_with_index do |location, lIndex| %>
+  <div class="col-xs-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= location %></div>
+      <div class="panel-body">
+        <div class="sort-wrap">
+          <ul id="sortable-<%= lIndex %>">
+            <% (Roombase.where(location: location).order(:sort)).each_with_index do |room, rIndex| %>              <div type="button" id="room-<%= room.id %>" class="btn btn-primary btn-lg"><%= room.name %>
+		<%= fields_for "rooms[#{room.id}]", room do |r| %>
+		  <%= r.hidden_field :sort %>    	        <% end %>
+	      </div>
+
+            <% end %>          </ul>
+        </div> <!-- /input-group -->
+      </div> <!-- /panel-body -->
+    </div> <!-- /panel-default -->
+  </div> <!-- /col-xs-12 -->
+<% end %>
+<% end %>
+
+<div class="create-new-button">
+    <button class="btn btn-primary" id="submit-form">
+      <span>Save Order</span>
+    </button>
+</div>

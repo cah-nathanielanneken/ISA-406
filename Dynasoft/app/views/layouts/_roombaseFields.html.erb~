@@ -11,6 +11,9 @@
         <%= f.label :maxOccupancy %>
         <%= f.text_field :maxOccupancy, class: 'form-control' %>
 
+	<%= f.label :sort %>
+        <%= f.number_field :sort, class: 'form-control' %>
+
         <%= f.label :activated %>
         <div class="radio">
           <%= f.radio_button :activated, true, class: 'form-control' %>

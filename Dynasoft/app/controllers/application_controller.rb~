@@ -29,11 +29,13 @@ class ApplicationController < ActionController::Base
   private
 
     def check_in_user
-      if (User.where(name: session[:cas_user])).blank?
-        temp_user = User.new(name: session[:cas_user])
-        temp_user.save        
+      if session[:cas_user] != nil
+        if (User.where(name: session[:cas_user])).blank?
+          temp_user = User.new(name: session[:cas_user])
+          temp_user.save        
+        end
+        set_logged_user
       end
-      set_logged_user
     end
 
 end

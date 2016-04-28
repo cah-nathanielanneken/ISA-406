@@ -29,4 +29,18 @@ $(document).ready(function() {
       }, 200);
     });
 
+    $( ".sort-wrap > ul" ).each(function() {
+      $(this).sortable();
+    });
+
+    $( "#submit-form" ).click(function(e) {
+      $( ".sort-wrap > ul" ).each(function() {
+        var arr = $(this).sortable("toArray");
+	for (var i = 0; i < arr.length; i++) {
+	  $( "#"+arr[i]+" input:last-child" ).val(i);
+        }
+      });
+      $( "#rooms-form" ).submit();
+    });
+
 });

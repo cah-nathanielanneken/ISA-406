@@ -48,6 +48,18 @@ class RoombasesController < ApplicationController
     redirect_to roombases_path
   end
 
+  def sort
+
+  end
+
+  def submitsort
+    (params[:rooms]).each do |key, value|
+      Roombase.find(key).update_attribute(:sort, value[:sort])
+    end
+    flash[:success] = "Room Order Updated"
+    redirect_to roombases_edit_sort_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_roombase

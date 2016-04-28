@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   get 'roomactivities/index'
 
   get 'static_pages/invalid_user'
@@ -16,7 +17,8 @@ Rails.application.routes.draw do
   resources :roombases
   get '/invalidUser' => 'static_pages#invalid_user'
   get '/logout' => 'application#logout'
-  get '/roomExport' => 'static_pages#export'
+  get 'roombases/edit/sort' => 'roombases#sort'
+  get 'roombases/edit/sort/save' => 'roombases#submitsort'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

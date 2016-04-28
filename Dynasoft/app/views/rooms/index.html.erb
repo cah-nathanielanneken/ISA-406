@@ -6,40 +6,15 @@
       <span>Back</span>
     </button>
 <% end %>
-<% if @rooms.first.location == "1st Floor" %>
-<%= link_to rooms_location_path(:location => "2nd Floor") do %>
+
+<% Roombase.where.not(location: @rooms.first.location).uniq.pluck(:location).each do |location| %>
+  <%= link_to rooms_location_path(:location => location) do %>
     <button class="btn btn-primary">
-      <span>2nd Floor</span>
+      <span><%= location %></span>
     </button>
+  <% end %>
 <% end %>
-<%= link_to rooms_location_path(:location => "3rd Floor") do %>
-    <button class="btn btn-primary">
-      <span>3rd Floor</span>
-    </button>
-<% end %>
-<% elsif @rooms.first.location == "2nd Floor" %>
-<%= link_to rooms_location_path(:location => "1st Floor") do %>
-    <button class="btn btn-primary">
-      <span>1st Floor</span>
-    </button>
-<% end %>
-<%= link_to rooms_location_path(:location => "3rd Floor") do %>
-    <button class="btn btn-primary">
-      <span>3rd Floor</span>
-    </button>
-<% end %>
-<% else %>
-<%= link_to rooms_location_path(:location => "1st Floor") do %>
-    <button class="btn btn-primary">
-      <span>1st Floor</span>
-    </button>
-<% end %>
-<%= link_to rooms_location_path(:location => "2nd Floor") do %>
-    <button class="btn btn-primary">
-      <span>2nd Floor</span>
-    </button>
-<% end %>
-<% end %>
+
 </div>
 
 <% @rooms.each do |room| %>
@@ -100,38 +75,13 @@
       <span>Back</span>
     </button>
 <% end %>
-<% if @rooms.first.location == "1st Floor" %>
-<%= link_to rooms_location_path(:location => "2nd Floor") do %>
+
+<% Roombase.where.not(location: @rooms.first.location).uniq.pluck(:location).each do |location| %>
+  <%= link_to rooms_location_path(:location => location) do %>
     <button class="btn btn-primary">
-      <span>2nd Floor</span>
+      <span><%= location %></span>
     </button>
+  <% end %>
 <% end %>
-<%= link_to rooms_location_path(:location => "3rd Floor") do %>
-    <button class="btn btn-primary">
-      <span>3rd Floor</span>
-    </button>
-<% end %>
-<% elsif @rooms.first.location == "2nd Floor" %>
-<%= link_to rooms_location_path(:location => "1st Floor") do %>
-    <button class="btn btn-primary">
-      <span>1st Floor</span>
-    </button>
-<% end %>
-<%= link_to rooms_location_path(:location => "3rd Floor") do %>
-    <button class="btn btn-primary">
-      <span>3rd Floor</span>
-    </button>
-<% end %>
-<% else %>
-<%= link_to rooms_location_path(:location => "1st Floor") do %>
-    <button class="btn btn-primary">
-      <span>1st Floor</span>
-    </button>
-<% end %>
-<%= link_to rooms_location_path(:location => "2nd Floor") do %>
-    <button class="btn btn-primary">
-      <span>2nd Floor</span>
-    </button>
-<% end %>
-<% end %>
+
 </div>

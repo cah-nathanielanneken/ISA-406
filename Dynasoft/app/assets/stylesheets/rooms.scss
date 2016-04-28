@@ -177,6 +177,18 @@ button {
   display: none;
 }
 
+.sort-wrap > ul {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sort-wrap > ul > div {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
+
 @media (max-width: 800px) {
   .panel-title, .modal-title {
     text-align: center;

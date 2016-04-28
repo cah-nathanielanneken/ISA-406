@@ -1,6 +1,6 @@
 class RoombasesController < ApplicationController
   before_action :set_roombase, only: [:show, :edit, :update, :destroy]
-  #before_action :admin_user,     only: [:destroy]
+  before_action :admin_user,     only: [:show, :edit, :update, :destroy]
 
   # GET /roombases
   def index
@@ -48,6 +48,18 @@ class RoombasesController < ApplicationController
     redirect_to roombases_path
   end
 
+  def sort
+
+  end
+
+  def submitsort
+    (params[:rooms]).each do |key, value|
+      Roombase.find(key).update_attribute(:sort, value.sort)
+    end
+    flash[:success] = "Room Order Updated"
+    redirect_to roombases_edit_sort_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_roombase
@@ -59,11 +71,7 @@ class RoombasesController < ApplicationController
       params.require(:roombase).permit(:name, :location, :maxOccupancy, :activated)
     end
 
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
+    def admin_user
+      redirect_to(invalidUser_path) unless :is_admin?
     end
 end

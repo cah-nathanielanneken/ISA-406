@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   resources :roombases
   get '/invalidUser' => 'static_pages#invalid_user'
   get '/logout' => 'application#logout'
+  get 'roombases/edit/sort' => 'roombases#sort'
+  post 'roombases/edit/sort/save' => 'roombases#submitsort'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

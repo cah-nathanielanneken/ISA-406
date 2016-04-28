@@ -26,7 +26,27 @@ $(document).ready(function() {
           $(element.attr("data-target")).find("#room_occupancy")[0].value = '';
 	}
 	$(element.attr("data-target")).find("#room_occupancy")[0].focus();
-      }, 300);
+      }, 200);
+    });
+
+    $( ".sort-wrap > ul" ).each(function() {
+      $(this).sortable();
+    });
+
+    $( "#submit-form" ).click(function(e) {
+      var arr1 = $("#sortable-0").sortable("toArray");
+      var arr2 = $("#sortable-1").sortable("toArray");
+      var arr3 = $("#sortable-2").sortable("toArray");
+      for (var i = 0; i < arr1.length; i++) {
+	$( "#"+arr1[i]+" input:last-child" ).val(i);
+      }
+      for (var i = 0; i < arr2.length; i++) {
+	$( "#"+arr2[i]+" input:last-child" ).val(i);
+      }
+      for (var i = 0; i < arr3.length; i++) {
+	$( "#"+arr3[i]+" input:last-child" ).val(i);
+      }
+      $( "#rooms-form" ).submit();
     });
 
 });

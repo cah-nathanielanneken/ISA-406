@@ -10,7 +10,7 @@
 <div class="create-new-button">
 <%= link_to new_roombase_path do %>
     <button class="btn btn-primary">
-      <span>New User</span>
+      <span>New Room</span>
     </button>
 <% end %>
 </div>

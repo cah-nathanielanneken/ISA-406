@@ -7,9 +7,7 @@ module RoomsHelper
 
   def current_time_slot
     time = Time.now.hour
-    if time == 0
-      return "#{time+12}am to #{time+1}am"
-    elsif time < 11
+    if time < 11
       return "#{time}am to #{time+1}am"
     elsif time == 11
       return "#{time}am to #{time+1}pm"

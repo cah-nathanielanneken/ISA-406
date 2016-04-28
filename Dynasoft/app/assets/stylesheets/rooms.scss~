@@ -165,7 +165,7 @@ button {
   padding-top: 20px;
 }
 
-.btn-wrap > a:hover {
+.link-wrap > a:hover {
   background-color: inherit;
 }
 
@@ -175,6 +175,18 @@ button {
 
 .mobile {
   display: none;
+}
+
+#sortable {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#sortable > div {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
 }
 
 @media (max-width: 800px) {

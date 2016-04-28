@@ -1,6 +1,5 @@
 <% provide(:title, 'All Schedules') %>
 <h1>All Room Schedules</h1>
-<h1><%= testStuff %> </h1>
 
 <%= will_paginate %>
 
