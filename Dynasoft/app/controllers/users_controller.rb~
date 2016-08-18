@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     end
 
     def admin_user
-      redirect_to(invalidUser_path) unless is_admin?
+      redirect_to(invalidUser_path) unless :is_admin?
     end
 
 end

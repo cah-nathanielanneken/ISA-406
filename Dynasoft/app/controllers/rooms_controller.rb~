@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
-  #before_action :admin_user,     only: [:destroy]
+  before_action :is_authorized
 
   # GET /rooms
   def index
@@ -12,7 +12,6 @@ class RoomsController < ApplicationController
     #     @rooms = find_latest_rooms
     #   end
     # end
-    respond_to do |format|      format.html      format.xls    end
   end
 
   # PATCH/PUT /rooms/1

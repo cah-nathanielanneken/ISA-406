@@ -40,4 +40,10 @@ class ApplicationController < ActionController::Base
       end
     end
 
+    def is_authorized
+      if !(@currentUser.admin?)
+	redirect_to invalidUser_path
+      end
+    end
+
 end

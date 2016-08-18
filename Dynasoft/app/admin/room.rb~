@@ -5,8 +5,8 @@ ActiveAdmin.register Room do
     column :occupancy
     column :maxOccupancy
     column :created_at
-    column(:created_at) { |room| room.created_at.hour }
-    column(:created_at) { |room| room.created_at.to_date }  end
+    column('Hour') { |room| room.created_at.hour }
+    column('Date') { |room| room.created_at.to_date }  end
 
 
 

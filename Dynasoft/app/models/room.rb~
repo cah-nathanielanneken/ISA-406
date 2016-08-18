@@ -9,7 +9,7 @@ class Room < ActiveRecord::Base
 	isDeactive = false
 	time = Time.now.hour
 	(Roomactivity.where(room: room.name)).each do |activity|
-	  if ((activity.begin <= time && activity.end > time) || (activity.begin > time && 			activity.end > time && (activity.begin - activity.end) < 0))
+	  if ((activity.begin <= time && activity.end > time) || (activity.begin > time && 			activity.end > time && (activity.begin > activity.end)))
 	    isDeactive = true
 	  end
 	end

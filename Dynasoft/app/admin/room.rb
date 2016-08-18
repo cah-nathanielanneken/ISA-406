@@ -1,5 +1,7 @@
 ActiveAdmin.register Room do
 
+  before_action :is_authorized
+
   csv do    column :name
     column :location
     column :occupancy

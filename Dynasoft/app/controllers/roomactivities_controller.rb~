@@ -45,7 +45,7 @@ class RoomactivitiesController < ApplicationController
   def destroy
     Roomactivity.find(params[:id]).destroy
     flash[:success] = "Time rule deleted"
-    redirect_to roomactivity_path
+    redirect_to roomactivities_path
   end
 
   private

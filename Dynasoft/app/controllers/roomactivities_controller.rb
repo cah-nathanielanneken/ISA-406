@@ -1,6 +1,6 @@
 class RoomactivitiesController < ApplicationController
   before_action :set_roomactivity, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user,     only: [:show, :edit, :update, :destroy]
+  before_action :is_authorized
 
   # GET /roombases
   def index

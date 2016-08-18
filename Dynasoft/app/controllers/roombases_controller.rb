@@ -1,6 +1,6 @@
 class RoombasesController < ApplicationController
   before_action :set_roombase, only: [:show, :edit, :update, :destroy]
-  before_action :admin_user,     only: [:show, :edit, :update, :destroy]
+  before_action :is_authorized
 
   # GET /roombases
   def index

@@ -54,7 +54,7 @@ class RoombasesController < ApplicationController
 
   def submitsort
     (params[:rooms]).each do |key, value|
-      Roombase.find(key).update_attribute(:sort, value.sort)
+      Roombase.find(key).update_attribute(:sort, value[:sort])
     end
     flash[:success] = "Room Order Updated"
     redirect_to roombases_edit_sort_path
