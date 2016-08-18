@@ -1,4 +1,0 @@
-class RemoveDefaultValue < ActiveRecord::Migration
-  def change
-  end
-end

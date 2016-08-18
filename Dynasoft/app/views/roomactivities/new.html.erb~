@@ -1,5 +1,0 @@
-<% provide(:title, 'New Schedule') %>
-<% provide(:submitName, 'Create Schedule') %>
-<h1>New Schedule</h1>
-
-<%= render 'layouts/roomactivityFields' %>

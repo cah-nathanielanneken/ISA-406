@@ -1,3 +1,0 @@
-class Roomactivity < ActiveRecord::Base
-
-end

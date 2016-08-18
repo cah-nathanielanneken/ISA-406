@@ -1,8 +1,0 @@
-<?xml version="1.0"?><Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"  xmlns:o="urn:schemas-microsoft-com:office:office"  xmlns:x="urn:schemas-microsoft-com:office:excel"  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"  xmlns:html="http://www.w3.org/TR/REC-html40">  <Worksheet ss:Name="Sheet1">    <Table>      <Row>        <Cell><Data ss:Type="String">Name</Data></Cell>        <Cell><Data ss:Type="String">Occupancy</Data></Cell>
-	<Cell><Data ss:Type="String">Max Occupancy</Data></Cell>        <Cell><Data ss:Type="String">Location</Data></Cell>
-	<Cell><Data ss:Type="String">Editor</Data></Cell>
-	<Cell><Data ss:Type="String">Created At</Data></Cell>
-	<Cell><Data ss:Type="String">Updated At</Data></Cell>      </Row>    <% @rooms.each do |room| %>      <Row>        <Cell><Data ss:Type="String"><%= room.name %></Data></Cell>        <Cell><Data ss:Type="Number"><%= room.occupancy %></Data></Cell>        <Cell><Data ss:Type="Number"><%= room.maxOccupancy %></Data></Cell>        <Cell><Data ss:Type="String"><%= room.location %></Data></Cell>
-	<Cell><Data ss:Type="String"><%= room.editor %></Data></Cell>
-	<Cell><Data ss:Type="String"><%= room.created_at %></Data></Cell>
-	<Cell><Data ss:Type="String"><%= room.updated_at %></Data></Cell>      </Row>    <% end %>    </Table>  </Worksheet></Workbook>

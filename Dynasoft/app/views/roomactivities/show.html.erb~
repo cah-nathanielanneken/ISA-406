@@ -1,3 +1,0 @@
-<h2>Room Schedule:</h2>
-<%= @roomactivity.room %>
-<%= printTimeValue(@roomactivity.begin) - printTimeValue(@roomactivity.end) %>
